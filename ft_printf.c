@@ -6,41 +6,13 @@
 /*   By: tchevrie <tchevrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 14:03:45 by tchevrie          #+#    #+#             */
-/*   Updated: 2022/09/21 00:38:07 by tchevrie         ###   ########.fr       */
+/*   Updated: 2022/09/21 00:40:40 by tchevrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdarg.h>
 #include <stdio.h>
 #include "libft/includes/libft.h"
-
-// static size_t	count_args(const char *str)
-// {
-// 	size_t	count;
-// 	int		previous_arg;
-// 	size_t	i;
-
-// 	count = 0;
-// 	previous_arg = 0;
-// 	i = 0;
-// 	while (str[i])
-// 	{
-// 		if (str[i] == '%' && !previous_arg)
-// 		{
-// 			previous_arg = 1;
-// 			count++;
-// 		}
-// 		else if (str[i] == '%' && previous_arg)
-// 		{
-// 			count--;
-// 			previous_arg = 0;
-// 		}
-// 		else
-// 			previous_arg = 0;
-// 		i++;
-// 	}
-// 	return (count);
-// }
 
 static size_t	conversion(const char *c, size_t *i, va_list *ap)
 {
@@ -88,50 +60,3 @@ int	ft_printf(const char *str, ...)
 	va_end(ap);
 	return (len);
 }
-
-// int	main(void)
-// {
-// 	ft_printf(" (%d)", ft_printf("(ft_...) %s !", "Titouan"));
-// 	ft_putstr("\n");
-// 	ft_printf(" (%d)", ft_printf("(ft_...) %d !", 42));
-// 	ft_putstr("\n");
-// 	ft_printf(" (%d)", ft_printf("(ft_...) %i !", -21));
-// 	ft_putstr("\n");
-// 	ft_printf(" (%d)", ft_printf("(ft_...) %p !", "Hello"));
-// 	ft_putstr("\n");
-// 	ft_printf(" (%d)", ft_printf("(ft_...) %s !", "Titouan"));
-// 	ft_putstr("\n");
-// 	ft_printf(" (%d)", ft_printf("(ft_...) %\n %p !", 4294967295));
-// 	ft_putstr("\n");
-// 	ft_printf(" (%d)", ft_printf("(ft_...) %%%u !", 4294967296));
-// 	ft_putstr("\n");
-// 	ft_printf(" (%d)", ft_printf("(ft_...) %c !", 4));
-// 	ft_putstr("\n");
-// 	ft_printf(" (%d)", ft_printf("(ft_...) %p !", 4));
-// 	ft_putstr("\n");
-// 	ft_printf(" (%d)", ft_printf("(ft_...) %s !", NULL));
-// 	ft_putstr("\n");
-
-// 	printf("\n\n");
-
-// 	printf(" (%d)", printf("(printf) %s !", "Titouan"));
-// 	printf("\n");
-// 	printf(" (%d)", printf("(printf) %d !", 42));
-// 	printf("\n");
-// 	printf(" (%d)", printf("(printf) %i !", -21));
-// 	printf("\n");
-// 	printf(" (%d)", printf("(printf) %p !", "Hello"));
-// 	printf("\n");
-// 	printf(" (%d)", printf("(printf) %s !", "Titouan"));
-// 	printf("\n");
-// 	printf(" (%d)", printf("(printf) %\n %p !", 4294967295));
-// 	printf("\n");
-// 	printf(" (%d)", printf("(printf) %%%u !", 4294967296));
-// 	printf("\n");
-// 	printf(" (%d)", printf("(printf) %c !", 4));
-// 	printf("\n");
-// 	printf(" (%d)", printf("(printf) %p !", 4));
-// 	printf("\n");
-// 	printf(" (%d)", printf("(printf) %s !", NULL));
-// 	printf("\n");
-// }
