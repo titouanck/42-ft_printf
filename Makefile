@@ -1,8 +1,6 @@
-SRCS = $(wildcard ./libft/libc/*.c) $(wildcard ./libft/additional/*.c) $(wildcard ./libft/others/*.c) $(wildcard ./*.c)
+SRCS = $(wildcard ./*.c) $(wildcard ./libft/srcs/*.c)
 
-SRCSBONUS = ${SRCS} $(wildcard ./libft/bonus/*.c) 
-
-INC = ./includes/
+INC = ./
 
 OBJS = ${SRCS:.c=.o}
 
@@ -20,13 +18,10 @@ CFLAGS = -Wall -Werror -Wextra -I ${INC}
 ${LIB}:	${OBJS}
 		ar -rsc ${LIB} ${OBJS}
 
-bonus:	${OBJSBONUS}
-		ar -rsc ${LIB} ${OBJSBONUS}
-
 all: 	${LIB}
 
 clean:	
-		rm -f ${OBJSBONUS}
+		rm -f ${OBJS}
 
 fclean:	clean;
 		rm -f ${LIB}
