@@ -6,7 +6,7 @@
 /*   By: tchevrie <tchevrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 16:04:47 by tchevrie          #+#    #+#             */
-/*   Updated: 2022/09/22 16:30:55 by tchevrie         ###   ########.fr       */
+/*   Updated: 2022/09/22 16:33:05 by tchevrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ int	main(void)
 
 	str = "titouanck";
 	pstr = &str;
-	r1 = printf("Mon telephone est charge a auteur de 42%%.\n");
-	r2 = ft_printf("Mon telephone est charge a auteur de 42%%.\n");
+	r1 = printf("Le telephone est charge a hauteur de 42%%.\n");
+	r2 = ft_printf("Le telephone est charge a hauteur de 42%%.\n");
 	printf("%d : %d\n\n", r1, r2);
 
 	r1 = printf("J'ai %d ans, bientot %u.\n", 18, 19);
