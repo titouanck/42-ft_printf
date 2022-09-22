@@ -6,7 +6,7 @@
 /*   By: tchevrie <tchevrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 14:03:45 by tchevrie          #+#    #+#             */
-/*   Updated: 2022/09/22 15:39:40 by tchevrie         ###   ########.fr       */
+/*   Updated: 2022/09/22 16:05:01 by tchevrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static size_t	conversion(const char *c, size_t *i, va_list *ap)
 {
 	if (*c != '%')
-		return (ft_putchar(*c));
+		return (-1 + ft_putchar(*c));
 	*i = *i + 1;
 	if (*(c + 1) == 'c')
 		return (-2 + ft_putchar((char) va_arg(*ap, int)));
@@ -31,11 +31,8 @@ static size_t	conversion(const char *c, size_t *i, va_list *ap)
 		return (-2 + ft_puthexa_lower(va_arg(*ap, int)));
 	else if (*(c + 1) == 'X')
 		return (-2 + ft_puthexa_upper(va_arg(*ap, int)));
-	else if (*(c + 1) == '%')
-		return (-2 + ft_putchar('%'));
 	else
 		return (-2 + ft_putchar(*(c + 1)));
-	return (-2);
 }
 
 int	ft_printf(const char *str, ...)
@@ -55,4 +52,3 @@ int	ft_printf(const char *str, ...)
 	va_end(ap);
 	return (len);
 }
-

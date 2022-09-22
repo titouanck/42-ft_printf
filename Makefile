@@ -1,4 +1,4 @@
-SRCS = $(wildcard ./*.c) $(wildcard ./libft/srcs/*.c)
+SRCS = ft_printf.c $(wildcard ./libft/srcs/*.c)
 
 INC = ./
 
