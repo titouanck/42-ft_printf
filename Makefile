@@ -4,8 +4,6 @@ INC = ./
 
 OBJS = ${SRCS:.c=.o}
 
-OBJSBONUS = ${SRCSBONUS:.c=.o} 
-
 LIB = libftprintf.a
 
 CC = gcc
