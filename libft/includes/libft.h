@@ -6,7 +6,7 @@
 /*   By: tchevrie <tchevrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 15:13:35 by tchevrie          #+#    #+#             */
-/*   Updated: 2022/09/20 22:26:20 by tchevrie         ###   ########.fr       */
+/*   Updated: 2022/10/04 23:17:38 by tchevrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,8 +80,8 @@ size_t	ft_putchar(const char c);
 size_t	ft_putstr(const char *str);
 size_t	ft_putnbr(const int n);
 size_t	ft_putunbr(const unsigned int n);
-size_t	ft_puthexa_lower(const unsigned long n);
-size_t	ft_puthexa_upper(const unsigned long n);
+size_t	ft_puthexa_lower(const unsigned int n);
+size_t	ft_puthexa_upper(const unsigned int n);
 size_t	ft_putadress(void *adress);
 
 #endif
