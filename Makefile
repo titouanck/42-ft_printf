@@ -1,6 +1,4 @@
-SRCS = ft_printf.c $(wildcard ./libft/srcs/*.c)
-
-INC = ./
+SRCS = ft_printf.c $(wildcard ./srcs/*.c)
 
 OBJS = ${SRCS:.c=.o}
 
@@ -8,7 +6,7 @@ LIB = libftprintf.a
 
 CC = gcc
 
-CFLAGS = -Wall -Werror -Wextra -I ${INC}
+CFLAGS = -Wall -Werror -Wextra -I ./
 
 .c.o:
 		${CC} ${CFLAGS} -c $< -o ${<:.c=.o}

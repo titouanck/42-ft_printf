@@ -1,24 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_puthexa_upper.c                                 :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tchevrie <tchevrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/20 17:21:01 by tchevrie          #+#    #+#             */
-/*   Updated: 2022/10/04 23:21:53 by tchevrie         ###   ########.fr       */
+/*   Created: 2022/09/20 14:11:29 by tchevrie          #+#    #+#             */
+/*   Updated: 2022/10/05 05:35:24 by tchevrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "ft_printf.h"
 
-size_t	ft_puthexa_upper(const unsigned int n)
+size_t	ft_putstr(const char *str)
 {
-	if (n / 16)
-		return (ft_puthexa_upper(n / 16) + ft_puthexa_upper(n % 16));
-	else if (!(n / 10))
-		ft_putchar(n + '0');
+	if (!str)
+		return (write(1, "(null)", 6));
 	else
-		ft_putchar((char) n - 10 + 'A');
-	return (1);
+		return (write(1, str, ft_strlen(str)));
 }

@@ -1,23 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tchevrie <tchevrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/09 15:16:57 by tchevrie          #+#    #+#             */
-/*   Updated: 2022/10/04 23:22:06 by tchevrie         ###   ########.fr       */
+/*   Created: 2022/09/20 14:10:56 by tchevrie          #+#    #+#             */
+/*   Updated: 2022/10/05 05:35:24 by tchevrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "ft_printf.h"
 
-size_t	ft_strlen(const char *s)
+size_t	ft_putchar(const char c)
 {
-	size_t	i;
-
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
+	return (write(1, &c, 1));
 }

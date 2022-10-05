@@ -1,35 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_puthexa_lower.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tchevrie <tchevrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/12 18:10:03 by tchevrie          #+#    #+#             */
-/*   Updated: 2022/10/04 23:21:57 by tchevrie         ###   ########.fr       */
+/*   Created: 2022/09/20 17:21:01 by tchevrie          #+#    #+#             */
+/*   Updated: 2022/10/05 05:35:24 by tchevrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "ft_printf.h"
 
-static size_t	print_nb(long nb)
+size_t	ft_puthexa_lower(const unsigned int n)
 {
-	if (nb / 10)
-		return (print_nb(nb / 10) + print_nb(nb % 10));
+	if (n / 16)
+		return (ft_puthexa_lower(n / 16) + ft_puthexa_lower(n % 16));
+	else if (!(n / 10))
+		ft_putchar(n + '0');
 	else
-		return (ft_putchar(nb + '0'));
-}
-
-size_t	ft_putnbr(const int n)
-{
-	long	nb;
-
-	nb = n;
-	if (nb < 0)
-	{
-		nb = -nb;
-		return (ft_putchar('-') + print_nb(nb));
-	}
-	else
-		return (print_nb(nb));
+		ft_putchar((char) n - 10 + 'a');
+	return (1);
 }
