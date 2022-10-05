@@ -1,4 +1,4 @@
-SRCS = ft_printf.c $(wildcard ./srcs/*.c)
+SRCS = $(wildcard *.c)
 
 OBJS = ${SRCS:.c=.o}
 
