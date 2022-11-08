@@ -6,7 +6,7 @@
 /*   By: tchevrie <tchevrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 16:41:38 by tchevrie          #+#    #+#             */
-/*   Updated: 2022/10/05 05:35:24 by tchevrie         ###   ########.fr       */
+/*   Updated: 2022/11/08 10:22:22 by tchevrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ static size_t	printadress(const unsigned long n)
 
 size_t	ft_putadress(void *adress)
 {
+	if (!adress)
+		return (ft_putstr("(nil)"));
 	ft_putstr("0x");
 	return (2 + printadress((unsigned long) adress));
 }
