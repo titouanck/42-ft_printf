@@ -6,7 +6,7 @@
 /*   By: tchevrie <tchevrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 14:03:45 by tchevrie          #+#    #+#             */
-/*   Updated: 2022/10/04 22:59:57 by tchevrie         ###   ########.fr       */
+/*   Updated: 2022/11/15 19:46:24 by tchevrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 static size_t	conversion(const char *c, size_t *i, va_list *ap)
 {
-	if (*c != '%')
-		return (ft_putchar(*c));
 	*i = *i + 1;
 	if (*(c + 1) == 'c')
 		return (ft_putchar((char) va_arg(*ap, int)));
@@ -31,24 +29,39 @@ static size_t	conversion(const char *c, size_t *i, va_list *ap)
 		return (ft_puthexa_lower(va_arg(*ap, int)));
 	else if (*(c + 1) == 'X')
 		return (ft_puthexa_upper(va_arg(*ap, int)));
-	else if (*(c + 1))
-		return (ft_putchar(*(c + 1)));
+	else if (*(c + 1) == '%')
+		return (ft_putchar('%'));
+	else if (*(c + 1) && *(c + 2))
+		return (ft_putchar(*(c)) + ft_putchar(*(c + 1)));
 	else
-		return (0);
+	{
+		*i -= 1;
+		return (-1);
+	}
 }
 
 int	ft_printf(const char *str, ...)
 {
 	int		len;
+	int		tmp;
 	va_list	ap;
 	size_t	i;
 
+	if (!str)
+		return (-1);
 	len = 0;
 	va_start(ap, str);
 	i = 0;
 	while (str[i])
 	{
-		len += conversion(str + i, &i, &ap);
+		if (str[i] == '%')
+			tmp = conversion(str + i, &i, &ap);
+		else
+			tmp = ft_putchar(str[i]);
+		if (tmp >= 0)
+			len += tmp;
+		else
+			len = tmp;
 		i++;
 	}
 	va_end(ap);
